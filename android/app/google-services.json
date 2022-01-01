@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "140891701146",
+    "project_id": "airplant-60fd5",
+    "storage_bucket": "airplant-60fd5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:140891701146:android:4b3cf622fd477d64110423",
+        "android_client_info": {
+          "package_name": "com.hari.airplant_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "140891701146-0mr0uta76uhnd1m96lc5d784pvcmbmi3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLFSnKs8KTEoY2Eix0iPIKzP1ma5yNAG4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "140891701146-0mr0uta76uhnd1m96lc5d784pvcmbmi3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

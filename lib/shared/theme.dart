@@ -1,0 +1,52 @@
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+// color
+
+const Color kPrimaryColor = Color(0xff5C40CC);
+const Color kWhiteColor = Color(0xffFFFFFF);
+const Color kBlackColor = Color(0xff1F1449);
+const Color kGreyColor = Color(0xff9698A9);
+const Color kGreenColor = Color(0xff0EC3AE);
+const Color kPinkColor = Color(0xffEB70A5);
+const Color kBgColor = Color(0xffFAFAFA);
+const Color kInActiveColor = Color(0xffDBD7EC);
+const Color kTransparentColor = Colors.transparent;
+const Color kUnavailableColor = Color(0xffEBECF1);
+const Color kAvailableColor = Color(0xffE0D9FF);
+
+
+// text style
+
+TextStyle blackTextStyle = GoogleFonts.poppins(
+  color: kBlackColor,
+);
+TextStyle whiteTextStyle = GoogleFonts.poppins(
+  color: kWhiteColor,
+);
+TextStyle greyTextStyle = GoogleFonts.poppins(
+  color: kGreyColor,
+);
+TextStyle greenTextStyle = GoogleFonts.poppins(
+  color: kGreenColor,
+);
+TextStyle pinkTextStyle = GoogleFonts.poppins(
+  color: kPinkColor,
+);
+TextStyle purpleTextStyle = GoogleFonts.poppins(
+  color: kPrimaryColor,
+);
+
+// fontweight
+
+FontWeight light = FontWeight.w300;
+FontWeight regular = FontWeight.w400;
+FontWeight medium = FontWeight.w500;
+FontWeight semiBold = FontWeight.w600;
+FontWeight bold = FontWeight.w700;
+FontWeight extraBold = FontWeight.w800;
+FontWeight heavyBold = FontWeight.w900;
+
+// default margin
+double defaultMargin = 24;
+double defaultRadius = 18.0;
