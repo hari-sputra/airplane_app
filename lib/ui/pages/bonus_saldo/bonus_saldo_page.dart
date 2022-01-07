@@ -83,7 +83,7 @@ class BonusSaldoPage extends StatelessWidget {
                   child: Text(
                     NumberFormat.currency(
                       locale: 'id',
-                      symbol: 'IDR ',
+                       symbol: 'IDR ',
                       decimalDigits: 0,
                     ).format(state.user.balance),
                     style: whiteTextStyle.copyWith(

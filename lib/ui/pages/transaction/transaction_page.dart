@@ -47,7 +47,7 @@ class _TransactionPageState extends State<TransactionPage> {
                 });
           }
         }
-        return const Center(
+        return Center(
           child: Text("Transaction Page"),
         );
       },

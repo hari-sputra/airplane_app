@@ -1,12 +1,11 @@
 import 'package:airplane_app/models/transaction_model.dart';
-import 'package:airplane_app/models/user_model.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
+ import 'package:cloud_firestore/cloud_firestore.dart';
 
 class TransactionService {
   final CollectionReference _transactionReference =
       FirebaseFirestore.instance.collection("transactions");
 
-  Future<void> createTransaction(TransactionModel transaction) async {
+  Future<void> createTransaction (TransactionModel transaction) async {
     try {
       _transactionReference.add({
          'destination': transaction.destinations.toJson(),
