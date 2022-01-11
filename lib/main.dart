@@ -1,3 +1,4 @@
+import 'package:airplane_app/ui/pages/profile/camera/take_picture.dart';
 import 'package:airplane_app/cubit/auth_cubit.dart';
 import 'package:airplane_app/cubit/destinations_cubit.dart';
 import 'package:airplane_app/cubit/page_cubit.dart';
@@ -11,16 +12,24 @@ import 'package:airplane_app/ui/pages/home/detail_page.dart';
 import 'package:airplane_app/ui/pages/home/home_page.dart';
 import 'package:airplane_app/ui/pages/home/seat_page.dart';
 import 'package:airplane_app/ui/pages/main/main_page.dart';
+import 'package:airplane_app/ui/pages/profile/profile_page.dart';
 import 'package:airplane_app/ui/pages/sign_in/sign_in_page.dart';
 import 'package:airplane_app/ui/pages/sign_up/sign_up_page.dart';
 import 'package:airplane_app/ui/pages/splash_screen/splash_screen_page.dart';
+import 'package:camera/camera.dart';
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   await Firebase.initializeApp();
+  final cameras = await availableCameras();
+  final firstCamera = cameras.first;
   runApp(const MyApp());
 }
 
@@ -58,6 +67,7 @@ class MyApp extends StatelessWidget {
           '/main': (context) => MainPage(),
           '/home': (context) => HomePage(),
           '/success-checkout': (context) => SuccesCheckoutPage(),
+          '/profile': (context) => ProfilePage(),
         },
       ),
     );

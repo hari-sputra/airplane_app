@@ -62,10 +62,15 @@ class _HomePageState extends State<HomePage> {
                       ],
                     ),
                   ),
-                  const CircleAvatar(
-                    radius: 30,
-                    backgroundImage: AssetImage(
-                      "assets/images/image_profile.png",
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(context, '/profile');
+                    },
+                    child: CircleAvatar(
+                      radius: 30,
+                      backgroundImage: AssetImage(
+                        "assets/images/image_profile.png",
+                      ),
                     ),
                   ),
                 ],
