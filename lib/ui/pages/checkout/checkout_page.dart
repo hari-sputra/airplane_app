@@ -67,7 +67,7 @@ class CheckoutPage extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      transaction.destinations.city,
+                      transaction.destination.city,
                       style: greyTextStyle.copyWith(
                         fontWeight: light,
                       ),
@@ -118,7 +118,7 @@ class CheckoutPage extends StatelessWidget {
                       ),
                       image: DecorationImage(
                         image: NetworkImage(
-                          transaction.destinations.img,
+                          transaction.destination.img,
                         ),
                         fit: BoxFit.cover,
                       ),
@@ -130,7 +130,7 @@ class CheckoutPage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          transaction.destinations.name,
+                          transaction.destination.name,
                           style: blackTextStyle.copyWith(
                             fontWeight: medium,
                             fontSize: 18,
@@ -139,7 +139,7 @@ class CheckoutPage extends StatelessWidget {
                         ),
                         SizedBox(height: 5),
                         Text(
-                          transaction.destinations.city,
+                          transaction.destination.city,
                           style: greyTextStyle.copyWith(
                             fontWeight: light,
                           ),
@@ -160,7 +160,7 @@ class CheckoutPage extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    transaction.destinations.rating.toString(),
+                    transaction.destination.rating.toString(),
                     style: blackTextStyle.copyWith(
                       fontWeight: medium,
                     ),

@@ -414,7 +414,7 @@ class SeatPage extends StatelessWidget {
                   MaterialPageRoute(
                     builder: (context) => CheckoutPage(
                       TransactionModel(
-                        destinations: destinations,
+                        destination: destinations,
                         traveler: state.length,
                         selectedSeat: state.join(', '),
                         insurance: true,
