@@ -38,6 +38,7 @@ class _TransactionPageState extends State<TransactionPage> {
             );
           } else {
             return ListView.builder(
+                physics: BouncingScrollPhysics(),
                 itemCount: state.transactions.length,
                 padding: EdgeInsets.symmetric(horizontal: defaultMargin),
                 itemBuilder: (context, index) {

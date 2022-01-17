@@ -20,31 +20,35 @@ class CustomBottomNavItem extends StatelessWidget {
       onTap: () {
         context.read<PageCubit>().setPage(index);
       },
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          const SizedBox(),
-          Image.asset(
-            img,
-            width: 24,
-            height: 24,
-            color: context.read<PageCubit>().state == index
-                ? kPrimaryColor
-                : kGreyColor,
-          ),
-          Container(
-            width: 30,
-            height: 2,
-            decoration: BoxDecoration(
+      child: AnimatedContainer(
+        duration: Duration(seconds: 3),
+        curve: Curves.bounceIn,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            const SizedBox(),
+            Image.asset(
+              img,
+              width: 24,
+              height: 24,
               color: context.read<PageCubit>().state == index
                   ? kPrimaryColor
-                  : kTransparentColor,
-              borderRadius: BorderRadius.circular(
-                defaultRadius,
+                  : kGreyColor,
+            ),
+            Container(
+              width: 30,
+              height: 2,
+              decoration: BoxDecoration(
+                color: context.read<PageCubit>().state == index
+                    ? kPrimaryColor
+                    : kTransparentColor,
+                borderRadius: BorderRadius.circular(
+                  defaultRadius,
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

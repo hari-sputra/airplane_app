@@ -34,7 +34,7 @@ class _SignInPageState extends State<SignInPage> {
   }
 
   // NOTE: input section
-  Widget inputSection(BuildContext context) {
+  Widget inputSection(BuildContext context) { 
     // email
     Widget email() {
       return CustomTextFormField(
@@ -46,7 +46,7 @@ class _SignInPageState extends State<SignInPage> {
       );
     }
 
-// password
+    // password
     Widget password() {
       return CustomTextFormField(
         controller: _passwordController,
