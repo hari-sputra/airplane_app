@@ -13,7 +13,6 @@ class MainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
     // Note: BuildContent
     Widget buildContent(int currentIndex) {
       switch (currentIndex) {

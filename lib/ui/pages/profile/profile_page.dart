@@ -1,9 +1,12 @@
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:airplane_app/cubit/auth_cubit.dart';
+import 'package:airplane_app/models/user_model.dart';
 import 'package:airplane_app/shared/theme.dart';
 import 'package:airplane_app/ui/widgets/custom_button.dart';
 import 'package:airplane_app/ui/widgets/textformfield_profile.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -21,6 +24,10 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   XFile? _imageFile;
   final ImagePicker _picker = ImagePicker();
+
+  TextEditingController emailController = TextEditingController();
+  TextEditingController nameController = TextEditingController();
+  TextEditingController hobbyController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -153,6 +160,9 @@ class _ProfilePageState extends State<ProfilePage> {
       return BlocBuilder<AuthCubit, AuthState>(
         builder: (context, state) {
           if (state is AuthSuccess) {
+            emailController.text = state.user.email;
+            nameController.text = state.user.name;
+            hobbyController.text = state.user.hobby;
             return Container(
               margin: EdgeInsets.symmetric(
                 horizontal: defaultMargin,
@@ -172,20 +182,20 @@ class _ProfilePageState extends State<ProfilePage> {
                     hintText: "Email",
                     readOnly: true,
                     margin: EdgeInsets.only(bottom: 20),
-                    initalValue: state.user.email,
+                    controller: emailController,
                   ),
                   TextFormFieldProfile(
                     title: "Full Name",
                     hintText: "Full Name",
                     textInputType: TextInputType.name,
                     margin: EdgeInsets.only(bottom: 20),
-                    initalValue: state.user.name,
+                    controller: nameController,
                   ),
                   TextFormFieldProfile(
                     title: "Hobby",
                     hintText: "Hobby",
                     margin: EdgeInsets.only(bottom: 10),
-                    initalValue: state.user.hobby,
+                    controller: hobbyController,
                   ),
                   Container(
                     child: TextButton(
@@ -199,19 +209,49 @@ class _ProfilePageState extends State<ProfilePage> {
                 ],
               ),
             );
-          } else {
-            return SizedBox();
           }
+          return Center(
+            child: CircularProgressIndicator(),
+          );
         },
       );
     }
 
     Widget updateButton() {
       return Center(
-        child: CustomButton(
-          title: "Update",
-          width: 220,
-          onPressed: () {},
+        child: BlocConsumer<AuthCubit, AuthState>(
+          listener: (context, state) {
+            if (state is AuthSuccess) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  backgroundColor: kPrimaryColor,
+                  content: Text("Update data successfully!"),
+                ),
+              );
+             
+            } else if (state is AuthFailed) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  backgroundColor: kPinkColor,
+                  content: Text(state.error),
+                ),
+              );
+            }
+          },
+          builder: (context, state) {
+            if (state is AuthLoading) {
+              return Center(
+                child: CircularProgressIndicator(),
+              );
+            }
+            return CustomButton(
+              title: "Update",
+              width: 220,
+              onPressed: () {
+                
+              },
+            );
+          },
         ),
       );
     }

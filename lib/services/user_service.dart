@@ -32,4 +32,16 @@ class UserService {
       rethrow;
     }
   }
+
+  Future<void> updateUserById(UserModel user) async {
+    try {
+      _userReference.doc(user.id).update({
+        'email': user.email,
+        'name': user.name,
+        'hobby': user.hobby,
+      });
+    } catch (e) {
+      rethrow;
+    }
+  }
 }

@@ -5,7 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class TransactionPage extends StatefulWidget {
-  const TransactionPage({Key? key}) : super(key: key);
+  const TransactionPage({
+    Key? key,
+  }) : super(key: key);
 
   @override
   State<TransactionPage> createState() => _TransactionPageState();

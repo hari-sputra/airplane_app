@@ -8,7 +8,7 @@ class TextFormFieldProfile extends StatelessWidget {
   final bool obscureText;
   final TextInputType textInputType;
   final bool readOnly;
-  final String initalValue;
+  final TextEditingController controller;
 
   const TextFormFieldProfile({
     Key? key,
@@ -18,7 +18,7 @@ class TextFormFieldProfile extends StatelessWidget {
     this.obscureText = false,
     this.textInputType = TextInputType.text,
     this.readOnly = false,
-    this.initalValue = "",
+    required this.controller,
   }) : super(key: key);
 
   @override
@@ -39,7 +39,7 @@ class TextFormFieldProfile extends StatelessWidget {
             keyboardType: textInputType,
             style: blackTextStyle,
             cursorColor: kBlackColor,
-            initialValue: initalValue,
+            controller: controller,
             decoration: InputDecoration(
               hintText: hintText,
               hintStyle: greyTextStyle,

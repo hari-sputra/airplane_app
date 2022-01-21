@@ -64,7 +64,8 @@ class _HomePageState extends State<HomePage> {
                   ),
                   GestureDetector(
                     onTap: () {
-                      Navigator.pushNamed(context, '/profile');
+                      Navigator.pushNamed(context, '/profile',
+                          arguments: state.user.id);
                     },
                     child: CircleAvatar(
                       radius: 30,

@@ -1,6 +1,7 @@
 import 'package:airplane_app/cubit/auth_cubit.dart';
 import 'package:airplane_app/cubit/transaction_cubit.dart';
 import 'package:airplane_app/models/transaction_model.dart';
+import 'package:airplane_app/services/notification_service.dart';
 import 'package:airplane_app/ui/widgets/checkout_detail.dart';
 import 'package:airplane_app/ui/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
@@ -9,10 +10,22 @@ import 'package:intl/intl.dart';
 
 import '../../../shared/theme.dart';
 
-class CheckoutPage extends StatelessWidget {
+class CheckoutPage extends StatefulWidget {
   final TransactionModel transaction;
 
   const CheckoutPage(this.transaction, {Key? key}) : super(key: key);
+
+  @override
+  State<CheckoutPage> createState() => _CheckoutPageState();
+}
+
+class _CheckoutPageState extends State<CheckoutPage> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    NotificationServices.init();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -67,7 +80,7 @@ class CheckoutPage extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      transaction.destination.city,
+                      widget.transaction.destination.city,
                       style: greyTextStyle.copyWith(
                         fontWeight: light,
                       ),
@@ -118,7 +131,7 @@ class CheckoutPage extends StatelessWidget {
                       ),
                       image: DecorationImage(
                         image: NetworkImage(
-                          transaction.destination.img,
+                          widget.transaction.destination.img,
                         ),
                         fit: BoxFit.cover,
                       ),
@@ -130,7 +143,7 @@ class CheckoutPage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          transaction.destination.name,
+                          widget.transaction.destination.name,
                           style: blackTextStyle.copyWith(
                             fontWeight: medium,
                             fontSize: 18,
@@ -139,7 +152,7 @@ class CheckoutPage extends StatelessWidget {
                         ),
                         SizedBox(height: 5),
                         Text(
-                          transaction.destination.city,
+                          widget.transaction.destination.city,
                           style: greyTextStyle.copyWith(
                             fontWeight: light,
                           ),
@@ -160,7 +173,7 @@ class CheckoutPage extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    transaction.destination.rating.toString(),
+                    widget.transaction.destination.rating.toString(),
                     style: blackTextStyle.copyWith(
                       fontWeight: medium,
                     ),
@@ -179,25 +192,26 @@ class CheckoutPage extends StatelessWidget {
             ),
             CheckoutDetail(
               title: "Traveler",
-              deskription: "${transaction.traveler} Person",
+              deskription: "${widget.transaction.traveler} Person",
             ),
             CheckoutDetail(
               title: "Seat",
-              deskription: transaction.selectedSeat,
+              deskription: widget.transaction.selectedSeat,
             ),
             CheckoutDetail(
               title: "Insurance",
-              deskription: transaction.insurance ? 'YES' : 'NO',
-              text: transaction.insurance ? kGreenColor : kPinkColor,
+              deskription: widget.transaction.insurance ? 'YES' : 'NO',
+              text: widget.transaction.insurance ? kGreenColor : kPinkColor,
             ),
             CheckoutDetail(
               title: "Refundable",
-              deskription: transaction.refundable ? 'YES' : 'NO',
-              text: transaction.refundable ? kGreenColor : kPinkColor,
+              deskription: widget.transaction.refundable ? 'YES' : 'NO',
+              text: widget.transaction.refundable ? kGreenColor : kPinkColor,
             ),
             CheckoutDetail(
               title: "VAT",
-              deskription: "${(transaction.vat * 100).toStringAsFixed(0)}%",
+              deskription:
+                  "${(widget.transaction.vat * 100).toStringAsFixed(0)}%",
             ),
             CheckoutDetail(
               title: "Price",
@@ -205,7 +219,7 @@ class CheckoutPage extends StatelessWidget {
                 locale: 'id',
                 symbol: 'IDR ',
                 decimalDigits: 0,
-              ).format(transaction.price),
+              ).format(widget.transaction.price),
             ),
             CheckoutDetail(
               title: "Grand Total",
@@ -213,7 +227,7 @@ class CheckoutPage extends StatelessWidget {
                 locale: 'id',
                 symbol: 'IDR ',
                 decimalDigits: 0,
-              ).format(transaction.grandTotal),
+              ).format(widget.transaction.grandTotal),
               text: kPrimaryColor,
             ),
           ],
@@ -336,6 +350,7 @@ class CheckoutPage extends StatelessWidget {
           if (state is TransactionSuccess) {
             Navigator.pushNamedAndRemoveUntil(
                 context, '/success-checkout', (route) => false);
+            NotificationServices.showNotification();
           } else if (state is TransactionFailed) {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
@@ -358,7 +373,9 @@ class CheckoutPage extends StatelessWidget {
             child: CustomButton(
               title: "Pay Now",
               onPressed: () {
-                context.read<TransactionCubit>().createTransaction(transaction);
+                context
+                    .read<TransactionCubit>()
+                    .createTransaction(widget.transaction);
               },
             ),
           );

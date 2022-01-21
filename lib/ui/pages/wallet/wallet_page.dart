@@ -1,14 +1,16 @@
 import 'package:airplane_app/cubit/auth_cubit.dart';
 import 'package:airplane_app/shared/theme.dart';
+import 'package:airplane_app/ui/widgets/wallet_main_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/intl.dart';
 
 class WalletPage extends StatelessWidget {
   const WalletPage({Key? key}) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
+  // Note: wallet
+  Widget wallet() {
     return BlocBuilder<AuthCubit, AuthState>(
       builder: (context, state) {
         if (state is AuthSuccess) {
@@ -17,6 +19,7 @@ class WalletPage extends StatelessWidget {
               width: 300,
               height: 211,
               padding: EdgeInsets.all(24),
+              margin: EdgeInsets.only(top: 48),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(34),
                 image: DecorationImage(
@@ -102,6 +105,54 @@ class WalletPage extends StatelessWidget {
           return Text("");
         }
       },
+    );
+  }
+
+  // Note: Main menu
+  Widget mainMenu() {
+    return Container(
+      margin: EdgeInsets.symmetric(vertical: 48, horizontal: defaultMargin),
+      padding: EdgeInsets.all(24),
+      width: double.infinity,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(defaultRadius),
+        color: kWhiteColor,
+      ),
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              WalletMainMenu(icon: FontAwesomeIcons.wallet, text: "Top Up"),
+              WalletMainMenu(icon: FontAwesomeIcons.barcode, text: "Pay"),
+              WalletMainMenu(icon: FontAwesomeIcons.qrcode, text: "Pay Code"),
+            ],
+          ),
+          SizedBox(height: 24),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              WalletMainMenu(
+                  icon: FontAwesomeIcons.cashRegister, text: "Transfer"),
+              WalletMainMenu(
+                  icon: FontAwesomeIcons.moneyBill, text: "Withdrawal"),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: kBgColor,
+      body: Column(
+        children: [
+          wallet(),
+          mainMenu(),
+        ],
+      ),
     );
   }
 }

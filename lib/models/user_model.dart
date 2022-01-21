@@ -5,7 +5,7 @@ class UserModel extends Equatable {
   final int balance;
 
   const UserModel({
-    required this.id,
+    this.id = '',
     required this.email,
     required this.name,
     this.hobby = '',
