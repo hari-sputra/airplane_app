@@ -1,7 +1,8 @@
 import 'dart:async';
 
-import 'package:airplane_app/cubit/auth_cubit.dart';
-import 'package:airplane_app/shared/theme.dart';
+import 'package:air_plane/cubit/auth_cubit.dart';
+import 'package:air_plane/shared/theme.dart';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

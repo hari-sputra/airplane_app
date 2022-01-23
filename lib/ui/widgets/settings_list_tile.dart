@@ -1,4 +1,5 @@
-import 'package:airplane_app/shared/theme.dart';
+
+import 'package:air_plane/shared/theme.dart';
 import 'package:flutter/material.dart';
 
 class SettingsListTile extends StatelessWidget {

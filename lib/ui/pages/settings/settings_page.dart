@@ -1,7 +1,8 @@
-import 'package:airplane_app/cubit/auth_cubit.dart';
-import 'package:airplane_app/shared/theme.dart';
-import 'package:airplane_app/ui/widgets/custom_button.dart';
-import 'package:airplane_app/ui/widgets/settings_list_tile.dart';
+import 'package:air_plane/cubit/auth_cubit.dart';
+import 'package:air_plane/shared/theme.dart';
+import 'package:air_plane/ui/widgets/custom_button.dart';
+import 'package:air_plane/ui/widgets/settings_list_tile.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

@@ -1,9 +1,10 @@
-import 'package:airplane_app/models/destinations_model.dart';
-import 'package:airplane_app/shared/theme.dart';
-import 'package:airplane_app/ui/pages/home/seat_page.dart';
-import 'package:airplane_app/ui/widgets/custom_button.dart';
-import 'package:airplane_app/ui/widgets/interest_items.dart';
-import 'package:airplane_app/ui/widgets/photo_items.dart';
+
+import 'package:air_plane/models/destinations_model.dart';
+import 'package:air_plane/shared/theme.dart';
+import 'package:air_plane/ui/pages/home/seat_page.dart';
+import 'package:air_plane/ui/widgets/custom_button.dart';
+import 'package:air_plane/ui/widgets/interest_items.dart';
+import 'package:air_plane/ui/widgets/photo_items.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 

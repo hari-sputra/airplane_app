@@ -1,9 +1,8 @@
-import 'package:airplane_app/models/user_model.dart';
-import 'package:airplane_app/services/auth_service.dart';
-import 'package:airplane_app/services/user_service.dart';
+import 'package:air_plane/models/user_model.dart';
+import 'package:air_plane/services/auth_service.dart';
+import 'package:air_plane/services/user_service.dart';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 
 part 'auth_state.dart';
 
@@ -62,11 +61,12 @@ class AuthCubit extends Cubit<AuthState> {
     }
   }
 
-  void updateCurrentUser(UserModel data) async {
+  void updateCurrentUser(String name, String email, String hobby) async {
     try {
       emit(AuthLoading());
-      await UserService().updateUserById(data);
-      emit(AuthSuccess(data));
+      await UserService()
+          .updateUserById(UserModel(email: email, name: name, hobby: hobby));
+      emit(AuthInitial());
     } catch (e) {
       emit(AuthFailed(e.toString()));
     }

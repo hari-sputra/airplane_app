@@ -1,5 +1,6 @@
-import 'package:airplane_app/models/destinations_model.dart';
-import 'package:airplane_app/ui/pages/home/detail_page.dart';
+
+import 'package:air_plane/models/destinations_model.dart';
+import 'package:air_plane/ui/pages/home/detail_page.dart';
 import 'package:flutter/material.dart';
 
 import '../../shared/theme.dart';

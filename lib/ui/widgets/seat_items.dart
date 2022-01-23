@@ -1,4 +1,5 @@
-import 'package:airplane_app/cubit/seat_cubit.dart';
+
+import 'package:air_plane/cubit/seat_cubit.dart';
 import 'package:flutter/material.dart';
 
 import '../../shared/theme.dart';

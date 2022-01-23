@@ -9,7 +9,7 @@ class UserModel extends Equatable {
     required this.email,
     required this.name,
     this.hobby = '',
-    this.balance = 0,
+    this.balance = 0, 
   });
 
   @override

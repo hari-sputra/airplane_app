@@ -15,7 +15,7 @@ class NotificationServices {
   }
 
   static Future init() async {
-    final android = AndroidInitializationSettings('@mipmap/ic_launcher');
+    final android = AndroidInitializationSettings('ic_stat_plane_app');
     final settings = InitializationSettings(android: android);
     await _notifications.initialize(settings);
   }

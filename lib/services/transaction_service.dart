@@ -1,4 +1,4 @@
-import 'package:airplane_app/models/transaction_model.dart';
+import 'package:air_plane/models/transaction_model.dart';
  import 'package:cloud_firestore/cloud_firestore.dart';
 
 class TransactionService {

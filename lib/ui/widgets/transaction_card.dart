@@ -1,5 +1,6 @@
-import 'package:airplane_app/models/transaction_model.dart';
-import 'package:airplane_app/ui/widgets/checkout_detail.dart';
+
+import 'package:air_plane/models/transaction_model.dart';
+import 'package:air_plane/ui/widgets/checkout_detail.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 

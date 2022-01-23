@@ -1,5 +1,6 @@
-import 'package:airplane_app/models/transaction_model.dart';
-import 'package:airplane_app/services/transaction_service.dart';
+
+import 'package:air_plane/models/transaction_model.dart';
+import 'package:air_plane/services/transaction_service.dart';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 

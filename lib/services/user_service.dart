@@ -1,4 +1,4 @@
-import 'package:airplane_app/models/user_model.dart';
+import 'package:air_plane/models/user_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class UserService {
@@ -35,11 +35,14 @@ class UserService {
 
   Future<void> updateUserById(UserModel user) async {
     try {
-      _userReference.doc(user.id).update({
-        'email': user.email,
-        'name': user.name,
-        'hobby': user.hobby,
-      });
+     return _userReference.doc(user.id).update({
+        "email": user.email,
+        "name": user.name,
+        "hobby": user.hobby,
+      }).then((value) {
+        print("User update");
+        // ignore: invalid_return_type_for_catch_error
+      }).catchError((err) => print("update user failed: $err"));
     } catch (e) {
       rethrow;
     }

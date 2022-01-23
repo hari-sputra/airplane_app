@@ -1,5 +1,5 @@
-import 'package:airplane_app/models/user_model.dart';
-import 'package:airplane_app/services/user_service.dart';
+import 'package:air_plane/models/user_model.dart';
+import 'package:air_plane/services/user_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthService {
@@ -37,7 +37,7 @@ class AuthService {
         email: email,
         name: name,
         hobby: hobby,
-        balance: 280000000,
+        balance: 280000000, 
       );
 
       await UserService().setUser(user);

@@ -1,10 +1,9 @@
-import 'dart:math';
 
-import 'package:airplane_app/cubit/auth_cubit.dart';
-import 'package:airplane_app/cubit/destinations_cubit.dart';
-import 'package:airplane_app/shared/theme.dart';
-import 'package:airplane_app/ui/widgets/custom_card_popular_destination.dart';
-import 'package:airplane_app/ui/widgets/custom_list_tile_new_destination.dart';
+import 'package:air_plane/cubit/auth_cubit.dart';
+import 'package:air_plane/cubit/destinations_cubit.dart';
+import 'package:air_plane/shared/theme.dart';
+import 'package:air_plane/ui/widgets/custom_card_popular_destination.dart';
+import 'package:air_plane/ui/widgets/custom_list_tile_new_destination.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

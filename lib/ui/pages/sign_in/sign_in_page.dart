@@ -1,7 +1,8 @@
-import 'package:airplane_app/cubit/auth_cubit.dart';
-import 'package:airplane_app/shared/theme.dart';
-import 'package:airplane_app/ui/widgets/custom_button.dart';
-import 'package:airplane_app/ui/widgets/custom_textformfield.dart';
+import 'package:air_plane/cubit/auth_cubit.dart';
+import 'package:air_plane/shared/theme.dart';
+import 'package:air_plane/ui/widgets/custom_button.dart';
+import 'package:air_plane/ui/widgets/custom_textformfield.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -17,7 +18,6 @@ class _SignInPageState extends State<SignInPage> {
       TextEditingController(text: '');
   final TextEditingController _passwordController =
       TextEditingController(text: '');
-  
 
 // NOTE: title
   Widget title() {
@@ -34,7 +34,7 @@ class _SignInPageState extends State<SignInPage> {
   }
 
   // NOTE: input section
-  Widget inputSection(BuildContext context) { 
+  Widget inputSection(BuildContext context) {
     // email
     Widget email() {
       return CustomTextFormField(

@@ -1,5 +1,5 @@
-name: airplane_app
-description: A new Flutter project.
+name: air_plane
+description: An application for planning your trip using air transportation.
 
 publish_to: "none" # Remove this line if you wish to publish to pub.dev
 

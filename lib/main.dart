@@ -1,18 +1,19 @@
-import 'package:airplane_app/cubit/auth_cubit.dart';
-import 'package:airplane_app/cubit/destinations_cubit.dart';
-import 'package:airplane_app/cubit/page_cubit.dart';
-import 'package:airplane_app/cubit/seat_cubit.dart';
-import 'package:airplane_app/cubit/transaction_cubit.dart';
-import 'package:airplane_app/ui/pages/bonus_saldo/bonus_saldo_page.dart';
-import 'package:airplane_app/ui/pages/checkout/succes_checkout._page.dart';
-import 'package:airplane_app/ui/pages/get_started/get_started_page.dart';
-import 'package:airplane_app/ui/pages/home/home_page.dart';
-import 'package:airplane_app/ui/pages/main/main_page.dart';
-import 'package:airplane_app/ui/pages/profile/profile_page.dart';
-import 'package:airplane_app/ui/pages/sign_in/sign_in_page.dart';
-import 'package:airplane_app/ui/pages/sign_up/sign_up_page.dart';
-import 'package:airplane_app/ui/pages/splash_screen/splash_screen_page.dart';
 
+
+import 'package:air_plane/cubit/auth_cubit.dart';
+import 'package:air_plane/cubit/destinations_cubit.dart';
+import 'package:air_plane/cubit/page_cubit.dart';
+import 'package:air_plane/cubit/seat_cubit.dart';
+import 'package:air_plane/cubit/transaction_cubit.dart';
+import 'package:air_plane/ui/pages/bonus_saldo/bonus_saldo_page.dart';
+import 'package:air_plane/ui/pages/checkout/succes_checkout._page.dart';
+import 'package:air_plane/ui/pages/get_started/get_started_page.dart';
+import 'package:air_plane/ui/pages/home/home_page.dart';
+import 'package:air_plane/ui/pages/main/main_page.dart';
+import 'package:air_plane/ui/pages/profile/profile_page.dart';
+import 'package:air_plane/ui/pages/sign_in/sign_in_page.dart';
+import 'package:air_plane/ui/pages/sign_up/sign_up_page.dart';
+import 'package:air_plane/ui/pages/splash_screen/splash_screen_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

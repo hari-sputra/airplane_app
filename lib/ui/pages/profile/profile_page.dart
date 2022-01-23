@@ -1,12 +1,9 @@
-import 'dart:developer';
 import 'dart:io';
 
-import 'package:airplane_app/cubit/auth_cubit.dart';
-import 'package:airplane_app/models/user_model.dart';
-import 'package:airplane_app/shared/theme.dart';
-import 'package:airplane_app/ui/widgets/custom_button.dart';
-import 'package:airplane_app/ui/widgets/textformfield_profile.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:air_plane/cubit/auth_cubit.dart';
+import 'package:air_plane/shared/theme.dart';
+import 'package:air_plane/ui/widgets/custom_button.dart';
+import 'package:air_plane/ui/widgets/textformfield_profile.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -210,9 +207,7 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
             );
           }
-          return Center(
-            child: CircularProgressIndicator(),
-          );
+          return SizedBox();
         },
       );
     }
@@ -228,8 +223,8 @@ class _ProfilePageState extends State<ProfilePage> {
                   content: Text("Update data successfully!"),
                 ),
               );
-             
             } else if (state is AuthFailed) {
+              print(state.error);
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
                   backgroundColor: kPinkColor,
@@ -248,7 +243,11 @@ class _ProfilePageState extends State<ProfilePage> {
               title: "Update",
               width: 220,
               onPressed: () {
-                
+                // context.read<AuthCubit>().updateCurrentUser(
+                //       nameController.text,
+                //       emailController.text,
+                //       hobbyController.text,
+                //     );
               },
             );
           },

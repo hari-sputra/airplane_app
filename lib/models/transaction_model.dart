@@ -1,4 +1,4 @@
-import 'package:airplane_app/models/destinations_model.dart';
+import 'package:air_plane/models/destinations_model.dart';
 import 'package:equatable/equatable.dart';
 
 class TransactionModel extends Equatable {
